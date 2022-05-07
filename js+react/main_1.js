@@ -1,4 +1,5 @@
 /*******************************************************************************************/
+'use strict';
 
 // Задание на урок 19:
 //
@@ -23,6 +24,7 @@
 //
 // Проверить, чтобы все работало без ошибок в консоли *!/
 
+// ____ ПРОДОЛЖЕНИЕ ____
 
 // Задание на урок: 24;
 //
@@ -38,11 +40,7 @@
 //
 // 4) Потренироваться и переписать цикл еще двумя способами
 
-'use strict';
-
-// Код возьмите из предыдущего домашнего задания
-'use strict';
-
+/*
 const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели ?", "");
 const personalMovieDB = {
     count: numberOfFilms,
@@ -52,15 +50,30 @@ const personalMovieDB = {
     privat: false,
 }
 
-const lastFilm1 = prompt("Один из последних просмотренных фильмов?", ""),
-      lastFilm2 = prompt("Один из последних просмотренных фильмов?", ""),
-      starFilm1 = prompt("На сколько оцените его ?", ""),
-      starFilm2 = prompt("На сколько оцените его ?", "");
+for (let i = 0; i < 2; i++) {
+    const lastFilm = prompt("Один из последних просмотренных фильмов?", "");
+    const starFilm = prompt("На сколько оцените его ?", "");
 
-personalMovieDB.movies[lastFilm1] = starFilm1;
-personalMovieDB.movies[lastFilm2] = starFilm2;
+    if (lastFilm !== "" && starFilm !== "" && lastFilm !== null && starFilm !== null && lastFilm.length < 50) {
+        personalMovieDB.movies[lastFilm] = starFilm;
+        console.log("ok")
+    } else {
+        i--;
+        console.log("error")
+    }
 
-console.log(personalMovieDB)
+    console.log(`lastFilm: ${lastFilm}`)
+    console.log(`starFilm: ${starFilm}`)
+    console.log(personalMovieDB);
+}
 
-
-
+if (personalMovieDB.count < 10) {
+    console.log("Просмотрено довольно мало фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log("Вы классический зритель");
+} else if (personalMovieDB.count >= 30) {
+    console.log("Вы киноман");
+} else {
+    console.log("Произошла ошибка");
+}
+*/
