@@ -102,4 +102,34 @@ for (let i = 0; i <= lines; i++) {
 
 console.log(result);
 
+
+// Место для первой задачи
+function sayHello(name) {
+    return `Привет,${name}!`;
+}
+
+
+// Место для второй задачи
+function returnNeighboringNumbers(num) {
+    return `${num - 1} ${num} ${num + 1}`;
+}
+
+// Место для третьей задачи
+function getMathResult(num, count) {
+    let result = "";
+    const numStart = num;
+
+    if (count > 0 && typeof count === "number") {
+        for (let i = 1; i <= count; i++) {
+            result += `${num * i}`;
+            if (i < count) result += "---";
+        }
+    } else {
+        result = num;
+    }
+    return (result);
+}
+
+console.log(getMathResult(10, 5));
+
 */
