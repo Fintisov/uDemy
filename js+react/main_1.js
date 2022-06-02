@@ -69,82 +69,87 @@ P.S. Функции вызывать не обязательно
 переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
 
 3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку.
-Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены -
-при помощи метода forEach вывести в консоль сообщения в таком виде:
+Если он это сделал - возвращать его к этому же вопросу.
+После того, как все жанры введены - при помощи метода forEach вывести в консоль сообщения в таком виде:
 "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
 
-document.querySelector("#startScript").addEventListener("click", () => {
-    let numberOfFilms;
+// ____ ПРОДОЛЖЕНИЕ ____
 
-    function start() {
+const personalMovieDB = {
+    count: "",
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+
+    start: function () {
+        let numberOfFilms;
         numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели ?", "");
-        while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+
+        while (numberOfFilms === "" || numberOfFilms == null || isNaN(numberOfFilms)) {
             numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели ?", "");
         }
+        this.count = numberOfFilms;
+
         return numberOfFilms;
-    }
+    },
 
-    // start();
-
-    const personalMovieDB = {
-        count: numberOfFilms,
-        movies: {},
-        actors: {},
-        genres: [],
-        privat: false,
-    }
-
-    function rememberLastFilm() {
-
+    rememberLastFilm: function () {
         for (let i = 0; i < 2; i++) {
             const lastFilm = prompt("Один из последних просмотренных фильмов?", "");
             const starFilm = prompt("На сколько оцените его ?", "");
 
             if (lastFilm !== "" && starFilm !== "" && lastFilm !== null && starFilm !== null && lastFilm.length < 50 && !isNaN(starFilm)) {
-                personalMovieDB.movies[lastFilm] = starFilm;
-                console.log("ok")
+                this.movies[lastFilm] = starFilm;
             } else {
                 i--;
-                console.log("error")
             }
-
-            console.log(`lastFilm: ${lastFilm}`)
-            console.log(`starFilm: ${starFilm}`)
-            console.log(personalMovieDB);
         }
-    }
+    },
 
-    // rememberLastFilm();
-
-    function writeYourGenres() {
-        let yourGenres = "";
+    writeYourGenres: function () {
         for (let i = 0; i < 3; i++) {
-            personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}?`, "");
+            this.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}?`, "");
+            if (this.genres[i] == null || this.genres[i].trim() === "") {
+                i--
+            }
         }
-    }
 
-    writeYourGenres();
+        this.genres.forEach((elem, index) => {
+            console.log(`Любимый жанр ${index + 1} - это ${elem}`);
+        })
+    },
 
-    function detectPersonaLevel() {
-        if (personalMovieDB.count < 10) {
+    detectPersonaLevel: function () {
+        if (this.count < 10) {
             console.log("Просмотрено довольно мало фильмов");
-        } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+        } else if (this.count >= 10 && this.count <= 30) {
             console.log("Вы классический зритель");
-        } else if (personalMovieDB.count >= 30) {
+        } else if (this.count >= 30) {
             console.log("Вы киноман");
         } else {
             console.log("Произошла ошибка");
         }
-    }
+    },
 
-    // detectPersonaLevel();
-
-    function showMyDM(obj) {
+    showMyDM: function (obj) {
         if (!obj.privat) {
             console.log(obj);
         }
-    }
+    },
 
-    showMyDM(personalMovieDB);
+    toggleVisibleMyDB: function () {
+        this.privat = (!this.privat) ? true : false;
+    }
+}
+
+document.querySelector("#startScript").addEventListener("click", () => {
+
+    // personalMovieDB.start();
+    // personalMovieDB.rememberLastFilm();
+    // personalMovieDB.writeYourGenres();
+    // personalMovieDB.detectPersonaLevel();
+    // personalMovieDB.toggleVisibleMyDB();
+    // personalMovieDB.showMyDM(personalMovieDB);
 })
 
