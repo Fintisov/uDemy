@@ -1,3 +1,5 @@
+"use strict"
+
 /*
 
 // !* Задание на урок 23 *!
@@ -372,4 +374,161 @@ function availableCurr(arr, missingCurr) {
 }
 
 console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], ""));
-*/
+
+
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+}
+
+function isBudgetEnough(data) {
+    let square = 0;
+    let volume = 0;
+
+    data.shops.forEach(shop => {
+        square += shop.width * shop.length;
+    });
+
+    volume = data.height * square;
+
+    if (data.budget - (volume * data.moneyPer1m3) >= 0) {
+        return 'Бюджета достаточно';
+    } else {
+        return 'Бюджета недостаточно';
+    }
+}
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+
+function sortStudentsByGroups(arr) {
+    arr.sort();
+
+    let a = [];
+    let b = [];
+    let c = [];
+    let rest = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (i < 3) {
+            a.push(arr[i])
+        } else if (i >= 3 && i < 6) {
+            b.push(arr[i])
+        } else if (i >= 6 && i < 9) {
+            c.push(arr[i]);
+        } else {
+            rest.push(arr[i])
+        }
+    }
+    if (rest.length > 0) {
+        rest = rest.join(", ");
+    } else {
+        rest = "-"
+    }
+
+    return [a, b, c, `Оставшиеся студенты: ${rest}`]
+}
+
+console.log(sortStudentsByGroups(students));
+
+
+function createCounter() {
+    let count = 0
+
+    const myFunc = function () {
+        count = count + 1 ;
+        return count;
+    }
+
+    return myFunc;
+}
+
+const increment = createCounter();
+const c1 = increment();
+const c2 = increment();
+const c3 = increment();
+
+console.log(c1, c2, c3);
+
+
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
+        }
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
+
+function isOpen(prop) {
+    let answer = '';
+    prop ? answer = 'Открыто' : answer = 'Закрыто';
+
+    return answer;
+}
+
+// console.log(isOpen(restorantData.openNow));
+
+function isAverageLunchPriceTrue(fDish, sDish, average) {
+    if (+fDish.price.slice(0, -1) + parseInt(sDish.price, 10) < parseInt(average, 10)) {
+        return 'Цена ниже средней';
+    } else {
+        return 'Цена выше средней';
+    }
+}
+
+// console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
+
+function transferWaitors(data) {
+    const copy = Object.assign({}, data);
+
+    copy.waitors = {name: 'Mike', age: 32};
+    return copy;
+}
+
+console.log(transferWaitors(restorantData));
+
+ */
+
+const foo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = 0; i < foo.length; i++) {
+
+}
+
+console.log(foo);
