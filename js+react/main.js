@@ -525,10 +525,98 @@ console.log(transferWaitors(restorantData));
 
  */
 
+/*
+
+// перевернуть массив
 const foo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-for (let i = 0; i < foo.length; i++) {
+for (let i = 1; i < foo.length; i++) {
 
 }
 
 console.log(foo);
+
+*/
+
+//===== рекурсия ====
+function pow(x, n) {
+    if (n === 1) {
+        return x;
+    } else {
+        x *= pow(x, n - 1);
+        return x;
+    }
+}
+
+console.log(pow(2, 3));
+
+//---
+
+let student = {
+    js: [{
+        name: "John",
+        progress: 10
+    }, {
+        name: "Ivan",
+        progress: 40
+    }],
+    html: {
+        basic: [{
+            name: "Peter",
+            progress: 25
+        }, {
+            name: "Ann",
+            progress: 15
+        }, {
+            name: "Alex",
+            progress: 10
+        }
+        ],
+        pro: [{
+            name: "Sam",
+            progress: 50
+        }],
+    }
+}
+
+function getMiddleResult(data) {
+    if (Array.isArray(data)) {
+        let total = 0;
+
+        data.forEach(elem => {
+            total += elem.progress;
+        })
+
+        return [total, data.length];
+    } else {
+        let result = [0, 0];
+
+        for (let item of Object.values(data)) {
+            let subResult = getMiddleResult(item);
+            result[0] += subResult[0];
+            result[1] += subResult[1];
+        }
+
+        return result
+    }
+}
+
+console.log(getMiddleResult(student));
+
+//---
+
+function factorial(n) {
+    if (typeof n !== "number" || !Number.isInteger(n)) {
+        return "Введено не корректное значение."
+    } else if (n <= 0) {
+        return 1
+    }
+
+    if (n === 1) {
+        return n;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+factorial(5)
