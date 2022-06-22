@@ -1,0 +1,9 @@
+.main {
+  padding: 50px 0; }
+
+.main__btn {
+  max-width: 300px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }

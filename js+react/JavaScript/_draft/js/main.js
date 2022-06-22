@@ -504,6 +504,7 @@ function isOpen(prop) {
 
 // console.log(isOpen(restorantData.openNow));
 
+
 function isAverageLunchPriceTrue(fDish, sDish, average) {
     if (+fDish.price.slice(0, -1) + parseInt(sDish.price, 10) < parseInt(average, 10)) {
         return 'Цена ниже средней';
@@ -514,6 +515,8 @@ function isAverageLunchPriceTrue(fDish, sDish, average) {
 
 // console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
 
+//---------
+
 function transferWaitors(data) {
     const copy = Object.assign({}, data);
 
@@ -523,9 +526,6 @@ function transferWaitors(data) {
 
 console.log(transferWaitors(restorantData));
 
- */
-
-/*
 
 // перевернуть массив
 const foo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -536,9 +536,9 @@ for (let i = 1; i < foo.length; i++) {
 
 console.log(foo);
 
-*/
 
 //===== рекурсия ====
+
 function pow(x, n) {
     if (n === 1) {
         return x;
@@ -550,7 +550,7 @@ function pow(x, n) {
 
 console.log(pow(2, 3));
 
-//--------------- Перебор массива или обекта с помощью рекурсии ------------------
+//--------------- Перебор массива или объекта с помощью рекурсии ------------------
 
 let student = {
     js: [{
@@ -603,7 +603,7 @@ function getMiddleResult(data) {
 
 console.log(getMiddleResult(student));
 
-//---
+//---------
 
 function factorial(n) {
     if (typeof n !== "number" || !Number.isInteger(n)) {
@@ -620,3 +620,65 @@ function factorial(n) {
 }
 
 factorial(5)
+
+//---------
+
+function amountOfPages(summary){
+    let result = '';
+    let n = 0;
+
+    for (let i = 1; i <= summary; i++) {
+        result += i;
+        console.log(result);
+
+        if (result.length === summary) {
+            n = i;
+            break;
+        }
+    }
+
+    return n;
+}
+amountOfPages(25)
+
+*/
+
+/*
+function isPangram(string) {
+    let str = string.toLowerCase().split(" ").join("").split("");
+    return new Set(str).size === 26;
+}
+
+function isPangram(string) {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+    string = string.toLowerCase();
+
+    return alphabet.every(elem => {
+        return string.indexOf(elem) !== -1
+    })
+}
+
+isPangram("The quick brown fox jumps over the lazy dog");
+*/
+
+function deepCount(a) {
+    let count = 0;
+
+    a.forEach(elem => {
+        count++;
+        if (Array.isArray(elem)) {
+            count += deepCount(elem);
+        }
+    })
+
+    return count;
+}
+
+console.log(deepCount(
+    [1, 2,
+        [6, 7,
+            [9, 10, 11]
+        ],
+        4, 5,
+    ]
+));

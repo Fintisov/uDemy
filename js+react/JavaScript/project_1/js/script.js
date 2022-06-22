@@ -99,7 +99,8 @@ const personalMovieDB = {
             const lastFilm = prompt("Один из последних просмотренных фильмов?", "");
             const starFilm = prompt("На сколько оцените его ?", "");
 
-            if (lastFilm !== "" && starFilm !== "" && lastFilm !== null && starFilm !== null && lastFilm.length < 50 && !isNaN(starFilm)) {
+            if (lastFilm !== "" && starFilm !== "" && lastFilm !== null &&
+                starFilm !== null && lastFilm.length < 50 && !isNaN(starFilm)) {
                 this.movies[lastFilm] = starFilm;
             } else {
                 i--;
