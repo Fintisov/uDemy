@@ -90,5 +90,60 @@ String.prototype.toJadenCase = function () {
 
 let str = "How can mirrors be real if our eyes aren't real";
 console.log(str.toJadenCase());
-*/
 
+
+// 'HEY JUDE'
+
+decodeMorse = function (morseCode) {
+    const alphabetMorseCode = {
+        '.-': 'a',
+        '-...': 'b',
+        '-.-.': 'c',
+        '-..': 'd',
+        '.': 'e',
+        '..-.': 'f',
+        '--.': 'g',
+        '....': 'h',
+        '..': 'i',
+        '.---': 'j',
+        '-.-': 'k',
+        '.-..': 'l',
+        '--': 'm',
+        '-.': 'n',
+        '---': 'o',
+        '.--.': 'p',
+        '--.-': 'q',
+        '.-.': 'r',
+        '...': 's',
+        '-': 't',
+        '..-': 'u',
+        '...-': 'v',
+        '.--': 'w',
+        '-..-': 'x',
+        '-.--': 'y',
+        '--..': 'z',
+        '.----': '1',
+        '..---': '2',
+        '...--': '3',
+        '....-': '4',
+        '.....': '5',
+        '-....': '6',
+        '--...': '7',
+        '---..': '8',
+        '----.': '9',
+        '-----': '0',
+    };
+
+    let result = morseCode.split("   ").map(word => {
+        return word.split(" ").map(char => {
+            return alphabetMorseCode[char]
+        }).join("")
+    }).join(" ")
+
+    result = result.toUpperCase();
+
+    return result
+}
+
+console.log(decodeMorse('···---···'));
+*/

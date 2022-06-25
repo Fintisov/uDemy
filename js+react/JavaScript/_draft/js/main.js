@@ -659,7 +659,6 @@ function isPangram(string) {
 }
 
 isPangram("The quick brown fox jumps over the lazy dog");
-*/
 
 function deepCount(a) {
     let count = 0;
@@ -682,3 +681,9 @@ console.log(deepCount(
         4, 5,
     ]
 ));
+
+document.querySelector(".main").addEventListener("click", e => {
+    console.log(e)
+})
+
+ */
