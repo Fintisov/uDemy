@@ -1,4 +1,5 @@
 "use strict"
+const btn = document.querySelector(".main__btn");
 
 /*
 
@@ -687,3 +688,80 @@ document.querySelector(".main").addEventListener("click", e => {
 })
 
  */
+
+//__ рекурсивный setTimeout / setInterval __
+
+/*
+btn.addEventListener("click", () => {
+    let i = 0;
+    let id = setTimeout(function log() {
+        i++
+        if (i == 5) {
+            clearInterval(id);
+        } else {
+            console.log(i)
+            id = setTimeout(log, 500);
+        }
+    }, 500);
+})
+*/
+
+//__ Анимация квадратика __
+// lesson-64
+
+/*
+btn.addEventListener("click", () => {
+    const cube = document.querySelector(".cube");
+    let pos = 0,
+        check = true;
+
+    setTimeout(myAnimationBottom, 10);
+
+    function myAnimationBottom() {
+        if (check && pos < 300) {
+            pos++
+            cube.style.top = `${pos}px`;
+            cube.style.left = `${pos}px`;
+        } else if (pos == 300) {
+            check = false;
+            pos--;
+            cube.style.top = `${pos}px`;
+            cube.style.left = `${pos}px`;
+        } else if (pos == 0) {
+            check = true;
+            pos++;
+            cube.style.top = `${pos}px`;
+            cube.style.left = `${pos}px`;
+        } else {
+            pos--;
+            cube.style.top = `${pos}px`;
+            cube.style.left = `${pos}px`;
+        }
+        setTimeout(myAnimationBottom, 5);
+    }
+})*/
+
+/*
+let map = new WeakMap();
+
+
+function cache(person) {
+    if (!map.has(person)) {
+        map.set(person, new Date().getFullYear());
+    }
+    console.log(map.get(person))
+    return map.get(person);
+}
+
+let a1 = {name: "Anna"};
+let a2 = {name: "Max"};
+
+cache(a1);
+cache(a2);
+
+console.log(map)
+
+*/
+
+// __ Date __
+
