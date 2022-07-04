@@ -761,7 +761,59 @@ cache(a2);
 
 console.log(map)
 
+
+const box = document.querySelector(".box1");
+
+let observer = new MutationObserver(mutationRecords => {
+    console.log(mutationRecords)
+})
+
+observer.observe(box, {
+    childList: true,
+});
+
+ */
+
+/*
+function User(name, age) {
+    this.name = name;
+    this.age = age;
+    this.human = true;
+}
+
+const ivan = new User("ivan", 25);
+console.log(ivan);
 */
 
-// __ Date __
+class Rectangle { // создаем класс
+    constructor(width, height) { // задаем базовые параметры
+        this.width = width;
+        this.height = height;
+    }
 
+    calcArea() { // задаем метод
+        return this.width * this.height;
+    }
+}
+
+const square = new Rectangle(100, 20); // создаем объект на основе класса
+console.log(square); // будет объект square
+console.log(square.calcArea()); // 2000
+
+class ColoredRectangleWithText extends Rectangle { // Расширяем класс на основе Rectangle
+    constructor(width, height, text, color) { // Свойства передаваемые в расширяемый класс
+        super(width, height); //Свойства которые вы наследуем из основного класса
+        this.text = text;
+        this.color = color;
+    }
+
+    showMyProps() {
+         console.log(`текст: ${this.text}, цвет: ${this.color}`);
+    }
+}
+
+const divs = new ColoredRectangleWithText(20, 6, "Hello", "#121212");
+
+console.log(divs); // будет объект ColoredRectangleWithText
+console.log(divs.calcArea()); //120 (наследуем метод из родителя)
+divs.showMyProps(); // текст: Hello, цвет: #121212 (используем свой метод)
