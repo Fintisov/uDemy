@@ -785,6 +785,7 @@ const ivan = new User("ivan", 25);
 console.log(ivan);
 */
 
+/*
 class Rectangle { // создаем класс
     constructor(width, height) { // задаем базовые параметры
         this.width = width;
@@ -817,3 +818,21 @@ const divs = new ColoredRectangleWithText(20, 6, "Hello", "#121212");
 console.log(divs); // будет объект ColoredRectangleWithText
 console.log(divs.calcArea()); //120 (наследуем метод из родителя)
 divs.showMyProps(); // текст: Hello, цвет: #121212 (используем свой метод)
+*/
+
+// ...spred
+
+/*
+let srrSpred = [1, 3, "пять", "семь", 9];
+
+console.log(21, ...srrSpred, "last") // 1, 3, "пять", "семь", 9;
+
+// ...rest
+
+function arrRest(a, b, ...rest) {
+    console.log(a); // 5
+    console.log(b); // "two"
+    console.log(rest); // [8, 'один', 1, 3, 9]
+}
+
+arrRest(5, "two", 8, "один", 1, 3, 9);*/
